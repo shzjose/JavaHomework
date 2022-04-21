@@ -12,7 +12,7 @@ public class User implements Serializable {
     private String name;
     private String password;
     private String email;
-    @Column(name = "is-locked")
+    @Column(name = "is_locked")
     private int isLocked;
     private static final long serialVersionUID = 1L;
 
