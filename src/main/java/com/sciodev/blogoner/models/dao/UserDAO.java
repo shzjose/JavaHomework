@@ -17,4 +17,10 @@ public class UserDAO implements IUserDAO {
     public List<User> findAll() {
         return entityManager.createQuery("from User").getResultList();
     }
+
+    @Transactional
+    @Override
+    public void save(User user) {
+        entityManager.persist(user);
+    }
 }
