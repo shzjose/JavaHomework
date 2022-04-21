@@ -1,6 +1,9 @@
 package com.sciodev.blogoner.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -9,11 +12,17 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
+    @Size(min = 4, max = 128)
     private String name;
+    @NotEmpty
     private String password;
+    @NotEmpty
+    @Email
     private String email;
     @Column(name = "is_locked")
     private int isLocked;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
