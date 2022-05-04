@@ -34,33 +34,26 @@
 </nav>
 <div class="container">
     <h1 class="text-secondary border border-success border-top-0 border-start-0 border-end-0" th:text="${title}"></h1>
-    <form th:action="@{/form}" th:object="${user}" method="post">
+    <form th:action="@{/formComment}" th:object="${comment}" method="post">
         <div class="form-group row" style="margin-top: 1rem">
-            <label class="col-sm-2 col-form-label">Name</label>
+            <label class="col-sm-2 col-form-label">Autor</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{name}" class="form-control" th:errorclass="'form-control alert-danger'" />
-                <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+                <input type="text" th:field="*{autor}" class="form-control" th:errorclass="'form-control alert-danger'" />
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></small>
             </div>
         </div>
         <div class="form-group row" style="margin-top: 1rem">
-            <label class="col-sm-2 col-form-label">Password</label>
+            <label class="col-sm-2 col-form-label">Comment</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{password}" class="form-control" th:errorclass="'form-control alert-danger'" />
-                <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+                <textarea rows="3" th:field="*{comment}" class="form-control" th:errorclass="'form-control alert-danger'"> </textarea>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></small>
             </div>
         </div>
         <div class="form-group row" style="margin-top: 1rem">
-            <label class="col-sm-2 col-form-label">Email</label>
+            <label class="col-sm-2 col-form-label">Post ID</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{email}" class="form-control" th:errorclass="'form-control alert-danger'" />
-                <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
-            </div>
-        </div>
-        <div class="form-group row" style="margin-top: 1rem">
-            <label class="col-sm-2 col-form-label">Is locked</label>
-            <div class="col-sm-6">
-                <input type="text" th:field="*{isLocked}" class="form-control" th:errorclass="'form-control alert-danger'" />
-                <small class="form-text text-danger" th:if="${#fields.hasErrors('isLocked')}" th:errors="*{isLocked}"></small>
+                <input type="number" th:field="*{postId}" class="form-control" th:errorclass="'form-control alert-danger'" />
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('postId')}" th:errors="*{postId}"></small>
             </div>
         </div>
         <div class="form-group row" style="margin-top: 1rem">

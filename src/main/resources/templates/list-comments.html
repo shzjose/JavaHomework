@@ -34,28 +34,26 @@
 </nav>
 <div class="container">
     <h1 class="text-secondary border border-success border-top-0 border-start-0 border-end-0" th:text="${title}"></h1>
-    <a th:href="@{/form}">Create User</a>
+    <a th:href="@{/formComment}">Create Comment</a>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>Id</th>
-            <th>Nombre</th>
-            <th>Password</th>
-            <th>Email</th>
-            <th>Is locked</th>
+            <th>Comment</th>
+            <th>Autor</th>
+            <th>Post ID</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user: ${users}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.password}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.isLocked}"></td>
-            <td><a class="btn btn-primary btn-xs" th:href="@{/form/{id}(id=${user.id})}" th:text="Edit"></a></td>
-            <td><a class="btn btn-danger btn-xs" th:href="@{/delete/{id}(id=${user.id})}" th:text="Delete" onclick='return confirm("Are you sure you want to delete this user?");'></a></td>
+        <tr th:each="c: ${comments}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.comment}"></td>
+            <td th:text="${c.autor}"></td>
+            <td th:text="${c.postId}"></td>
+            <td><a class="btn btn-primary btn-xs" th:href="@{/formComment/{id}(id=${c.id})}" th:text="Edit"></a></td>
+            <td><a class="btn btn-danger btn-xs" th:href="@{/deleteComment/{id}(id=${c.id})}" th:text="Delete" onclick='return confirm("Are you sure you want to delete this user?");'></a></td>
         </tr>
         </tbody>
     </table>
